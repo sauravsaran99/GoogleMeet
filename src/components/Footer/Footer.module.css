@@ -43,7 +43,11 @@ li {
     list-style: none;
 }
 
-@media screen and (min-width: 400px) and (max-width: 1000px) {
+.footerarrow {
+    display: none;
+}
+
+@media screen and (min-width: 100px) and (max-width: 1000px) {
     .hide {
         display: none;
     }
@@ -56,4 +60,26 @@ li {
         flex: .5;
     }
     
+}
+
+@media screen and (min-width: 100px) and (max-width: 630px) {
+    
+    .footerthirdbox {
+        display: none;
+    }
+
+    .footersecondbox {
+        flex: .7;
+        justify-content: space-between;
+        padding: 0 5px;
+
+    }
+    
+    .footerarrow {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex: .3;
+    }
+
 }

@@ -1,5 +1,6 @@
 
 import style from './Footer.module.css';
+import { useState } from 'react';
 import MicOffIcon from '@mui/icons-material/MicOff';
 import VideocamOffIcon from '@mui/icons-material/VideocamOff';
 import ClosedCaptionOffIcon from '@mui/icons-material/ClosedCaptionOff';
@@ -11,8 +12,26 @@ import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import ChatIcon from '@mui/icons-material/Chat';
 import CategoryIcon from '@mui/icons-material/Category';
 import LockIcon from '@mui/icons-material/Lock';
-
+import { useDispatch } from 'react-redux/es/hooks/useDispatch';
+import { FirstBoxImageRequest } from '../Redux/Actions/Firstboximage';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { Secondboxdisplay } from '../Redux/Actions/Secondbox';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import { Secondbox} from '../Redux/Actions/Secondbox';
+import { MobileDetails} from '../Redux/Actions/Secondbox'
 export const Footer = () => {
+    const dispatch = useDispatch();
+    const [up, setDown] = useState(true);
+    
+const updatingDivui = () => {
+    dispatch(FirstBoxImageRequest('65%'));
+    dispatch(Secondbox('block'));
+    dispatch(Secondboxdisplay('35%'));
+}
+
+const updating = () => {
+    dispatch(MobileDetails('block'));
+}
 
     return (
         <>
@@ -28,7 +47,7 @@ export const Footer = () => {
                         "color": "white",
                         "width": "38px",
                         "height": "38px",
-                        "border-radius": "50%",
+                        "borderRadius": "50%",
                         "padding": "9px"
                     }}></MicOffIcon>
                 </li>
@@ -38,7 +57,7 @@ export const Footer = () => {
                         "color": "white",
                         "width": "38px",
                         "height": "38px",
-                        "border-radius": "50%",
+                        "borderRadius": "50%",
                         "padding": "9px"
                     }}></VideocamOffIcon>
                 </li>
@@ -48,7 +67,7 @@ export const Footer = () => {
                         "color": "white",
                         "width": "38px",
                         "height": "38px",
-                        "border-radius": "50%",
+                        "borderRadius": "50%",
                         "padding": "9px"
                     }}></ClosedCaptionOffIcon>
                 </li>
@@ -58,7 +77,7 @@ export const Footer = () => {
                         "color": "white",
                         "width": "38px",
                         "height": "38px",
-                        "border-radius": "50%",
+                        "borderRadius": "50%",
                         "padding": "9px"
                     }}></PresentToAllIcon>
                 </li>
@@ -68,7 +87,7 @@ export const Footer = () => {
                         "color": "white",
                         "width": "38px",
                         "height": "38px",
-                        "border-radius": "50%",
+                        "borderRadius": "50%",
                         "padding": "9px"
                     }}></MoreVertIcon>
                 </li>
@@ -78,57 +97,64 @@ export const Footer = () => {
                         "color": "white",
                         "width": "54px",
                         "height": "38px",
-                        "border-radius": "100px",
+                        "borderRadius": "100px",
                         "padding": "5px"
                     }}></CallEndIcon>
                 </li>
             </ul>
         </div>
+        <div className={style.footerarrow}>
+            {up ? <KeyboardArrowUpIcon onClick={updating} style={{
+                "color": '#ffff'
+            }}></KeyboardArrowUpIcon>: <KeyboardArrowDownIcon onClick={updating} style={{
+                "color": '#ffff'
+            }}></KeyboardArrowDownIcon>}
+        </div>
         <div className={style.footerthirdbox}>
         
-        <li>
+        <li onClick={updatingDivui}>
                 <LockIcon style={{
                         "color": "white",
                         "width": "43px",
                         "height": "43px",
-                        "border-radius": "50%",
+                        "borderRadius": "50%",
                         "padding": "9px"
                     }}></LockIcon>
             </li>
             
-            <li>
+            <li onClick={updatingDivui}>
                 <CategoryIcon style={{
                         "color": "white",
                         "width": "43px",
                         "height": "43px",
-                        "border-radius": "50%",
+                        "borderRadius": "50%",
                         "padding": "9px"
                     }}></CategoryIcon>
             </li>
-            <li>
+            <li onClick={updatingDivui}>
                 <ChatIcon style={{
                         "color": "white",
                         "width": "43px",
                         "height": "43px",
-                        "border-radius": "50%",
+                        "borderRadius": "50%",
                         "padding": "9px"
                     }}></ChatIcon>
             </li>
-            <li>
+            <li onClick={updatingDivui}>
                 <PeopleOutlineIcon style={{
                         "color": "white",
                         "width": "43px",
                         "height": "43px",
-                        "border-radius": "50%",
+                        "borderRadius": "50%",
                         "padding": "9px"
                     }}></PeopleOutlineIcon>
             </li>
-            <li>
+            <li onClick={updatingDivui}>
                 <InfoIcon style={{
                         "color": "white",
                         "width": "43px",
                         "height": "43px",
-                        "border-radius": "50%",
+                        "borderRadius": "50%",
                         "padding": "9px"
                     }}></InfoIcon>
             </li>

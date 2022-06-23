@@ -1,10 +1,11 @@
 
 .homefirstbox {
-    width: 100%;
+    width: 100vw;
     height: 87vh;
     background-color: rgb(32,33,36);
     display: flex;
     color: #fff;
+    /* align-items: center; */
 }
 
 .homesecondbox {
@@ -12,7 +13,16 @@
 }
 
 .firstboxtransition {
-    display: none;
-    background-color: skyblue;
+    position: relative;
 }
+
+.homeuserimage {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2HoveSx5prCIWhGymQ6z5-G-F3rejFBbVuA&usqp=CAU');
+    background-size: cover;
+    background-position: center;
+}
+
 
