@@ -18,10 +18,18 @@ import LockIcon from '@mui/icons-material/Lock';
 import { chatboxStyling } from '../Redux/Actions/Chatbox';
 import { peopleStyling } from '../Redux/Actions/Chatbox';
 import { mobileDisplay } from '../Redux/Actions/Mobile';
-import { useState } from 'react';
+import { useSelector } from 'react-redux/es/exports';
+import { useEffect, useState } from 'react';
 export const Footer = ({widthChange}) => {
     const dispatch = useDispatch();
+    const displayValue = useSelector(store => store.MobileReducers.display);
     const [upArrow, setDown] = useState(true);
+
+    useEffect(() => {
+        if(displayValue === 'none'){
+            setDown(true);
+        }
+    }, [displayValue])
     const changeStyling = () => {
         widthChange(
             {
@@ -94,7 +102,7 @@ export const Footer = ({widthChange}) => {
         } else {
             setDown(true);
         }
-        
+
         dispatch(mobileDisplay('block'));
     }
 

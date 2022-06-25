@@ -70,12 +70,12 @@
    }
 }
 
-@media screen and (min-width: 722px) and (max-width: 913px) {
+/* @media screen and (min-width: 722px) and (max-width: 913px) {
     #homefirstbox {
      grid-template-areas:
      'a a b b c c'
      'd d e e f f'
      '. g g h h .' !important;
     }
- }
+ } */
 
