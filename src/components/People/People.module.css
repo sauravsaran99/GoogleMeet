@@ -1,0 +1,20 @@
+
+
+.popleprofile {
+    display: flex;
+    padding: 8px 15px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+}
+
+#chatmainbox {
+    width: 350px;
+}
+
+@media screen and (min-width: 100px) and (max-width: 1030px) {
+    #chatmainbox {
+        width: 280px;
+    }
+    
+}

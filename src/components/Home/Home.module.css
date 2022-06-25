@@ -1,28 +1,81 @@
 
-.homefirstbox {
+.homemainbox {
     width: 100vw;
-    height: 87vh;
+    height: 100vh;
     background-color: rgb(32,33,36);
-    display: flex;
     color: #fff;
     /* align-items: center; */
 }
 
-.homesecondbox {
-    height: 13vh;
+.homefirstbox {
+    height: 85vh;
+    padding: 10px;
 }
 
-.firstboxtransition {
+.homefirstboximage {
+    background-color: rgba(255, 255, 255, 0.126);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 7px 6px;
+    border-radius: 5px;
     position: relative;
 }
 
-.homeuserimage {
-    width: 200px;
-    height: 200px;
+.homefirstboximage img {
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2HoveSx5prCIWhGymQ6z5-G-F3rejFBbVuA&usqp=CAU');
-    background-size: cover;
-    background-position: center;
 }
 
+.gridfirst {
+    grid-area: a;
+}
+
+.gridsecond {
+    grid-area: b;
+}
+
+.gridthird {
+    grid-area: c;
+}
+
+.gridforth {
+    grid-area: d;
+}
+
+.gridfifth {
+    grid-area: e;
+}
+
+.gridsixth {
+    grid-area: f;
+}
+
+.gridseven {
+    grid-area: g;
+}
+
+.grideight {
+    grid-area: h;
+}
+
+
+@media screen and (min-width: 540px) and (max-width: 721px) {
+   #homefirstbox {
+    grid-template-areas:
+    'a a b b c c'
+    'd d e e f f'
+    '. g g h h .' !important;
+   }
+}
+
+@media screen and (min-width: 722px) and (max-width: 913px) {
+    #homefirstbox {
+     grid-template-areas:
+     'a a b b c c'
+     'd d e e f f'
+     '. g g h h .' !important;
+    }
+ }
 

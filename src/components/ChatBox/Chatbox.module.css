@@ -1,0 +1,25 @@
+
+
+/* .chatmainbox {
+    position: absolute;
+    right: 0px;
+    top: 20px;
+    background-color: red;
+} */
+
+.chatmainbox {
+    position: relative;
+}
+
+#chatmainbox {
+    width: 350px;
+}
+
+@media screen and (min-width: 539px) and (max-width: 1030px) {
+    #chatmainbox {
+        width: 280px;
+    }
+    
+}
+
+

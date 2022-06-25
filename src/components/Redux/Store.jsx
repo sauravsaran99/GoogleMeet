@@ -1,13 +1,12 @@
-
-import { FirstBoxImageReducer } from '../Redux/Reducers/Firstboximage';
-import { SecondBoxReducer } from './Reducers/Second';
+import { ChatboxReducers } from './Reducers/ChatboxReducers';
 import { createStore } from 'redux';
 import { combineReducers } from 'redux';
+import { MobileReducers } from './Reducers/MobileReducers';
 
 
 const rootReducer = combineReducers({
-    firstBoxImage: FirstBoxImageReducer,
-    secondBox: SecondBoxReducer,
+    ChatboxReducers: ChatboxReducers,
+    MobileReducers: MobileReducers
 });
 
 export const store = createStore(rootReducer);

@@ -1,37 +1,102 @@
 
 import style from './Footer.module.css';
-import { useState } from 'react';
+// import { useState } from 'react';
 import MicOffIcon from '@mui/icons-material/MicOff';
+import KeyboardControlKeyIcon from '@mui/icons-material/KeyboardControlKey';
 import VideocamOffIcon from '@mui/icons-material/VideocamOff';
 import ClosedCaptionOffIcon from '@mui/icons-material/ClosedCaptionOff';
 import PresentToAllIcon from '@mui/icons-material/PresentToAll';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import CallEndIcon from '@mui/icons-material/CallEnd';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import InfoIcon from '@mui/icons-material/Info';
 import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import ChatIcon from '@mui/icons-material/Chat';
+import { useDispatch } from 'react-redux/es/exports';
 import CategoryIcon from '@mui/icons-material/Category';
 import LockIcon from '@mui/icons-material/Lock';
-import { useDispatch } from 'react-redux/es/hooks/useDispatch';
-import { FirstBoxImageRequest } from '../Redux/Actions/Firstboximage';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { Secondboxdisplay } from '../Redux/Actions/Secondbox';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { Secondbox} from '../Redux/Actions/Secondbox';
-import { MobileDetails} from '../Redux/Actions/Secondbox'
-export const Footer = () => {
+import { chatboxStyling } from '../Redux/Actions/Chatbox';
+import { peopleStyling } from '../Redux/Actions/Chatbox';
+import { mobileDisplay } from '../Redux/Actions/Mobile';
+import { useState } from 'react';
+export const Footer = ({widthChange}) => {
     const dispatch = useDispatch();
-    const [up, setDown] = useState(true);
-    
-const updatingDivui = () => {
-    dispatch(FirstBoxImageRequest('65%'));
-    dispatch(Secondbox('block'));
-    dispatch(Secondboxdisplay('35%'));
-}
+    const [upArrow, setDown] = useState(true);
+    const changeStyling = () => {
+        widthChange(
+            {
+               "width": `70%`,
+                       "display": "grid",
+                       "gridTemplateAreas": `
+                       'a a b b c c'
+                       'd d e e f f'
+                       '. g g h h .
+                       `,
+                       "transition": "width .2s",
+       "transitionTimingFunction": "linear"
+           }
+       );
 
-const updating = () => {
-    dispatch(MobileDetails('block'));
-}
+       dispatch(peopleStyling({"display": "none", "position": `absolute`,
+       "right": "20px",
+       "top": "20px",
+       "width":"0px",
+       'height': `84%`}));
+
+       dispatch(chatboxStyling({
+    "borderRadius": "5px",
+    'height': `84%`,
+    "background": '#fff',
+    "position": `absolute`,
+    "right": "20px",
+    "top": "20px",
+    "transition": "width .2s",
+    "transitionTimingFunction": "linear"
+       }));
+    }
+
+    const popleStyle = () => {
+        widthChange(
+            {
+               "width": `70%`,
+                       "display": "grid",
+                       "gridTemplateAreas": `
+                       'a a b b c c'
+                       'd d e e f f'
+                       '. g g h h .'
+                       `,
+                       "transition": "width .2s",
+       "transitionTimingFunction": "linear"
+           }
+       );
+
+       dispatch(chatboxStyling({"display": "none", "position": `absolute`,
+       "right": "20px",
+       "top": "20px",
+       "width":"0px",
+       'height': `84%`}))
+
+       dispatch(peopleStyling({
+    "borderRadius": "5px",
+    'height': `84%`,
+    "background": '#fff',
+    "position": `absolute`,
+    "right": "20px",
+    "top": "20px",
+    "transition": "width .2s",
+    "transitionTimingFunction": "linear"
+       }));
+    }
+
+    const mobileDisplayShow = () => {
+        if(upArrow){
+            setDown(false);
+        } else {
+            setDown(true);
+        }
+        
+        dispatch(mobileDisplay('block'));
+    }
 
     return (
         <>
@@ -103,16 +168,9 @@ const updating = () => {
                 </li>
             </ul>
         </div>
-        <div className={style.footerarrow}>
-            {up ? <KeyboardArrowUpIcon onClick={updating} style={{
-                "color": '#ffff'
-            }}></KeyboardArrowUpIcon>: <KeyboardArrowDownIcon onClick={updating} style={{
-                "color": '#ffff'
-            }}></KeyboardArrowDownIcon>}
-        </div>
         <div className={style.footerthirdbox}>
         
-        <li onClick={updatingDivui}>
+        <li>
                 <LockIcon style={{
                         "color": "white",
                         "width": "43px",
@@ -122,7 +180,7 @@ const updating = () => {
                     }}></LockIcon>
             </li>
             
-            <li onClick={updatingDivui}>
+            <li>
                 <CategoryIcon style={{
                         "color": "white",
                         "width": "43px",
@@ -131,8 +189,8 @@ const updating = () => {
                         "padding": "9px"
                     }}></CategoryIcon>
             </li>
-            <li onClick={updatingDivui}>
-                <ChatIcon style={{
+            <li>
+                <ChatIcon onClick={changeStyling} style={{
                         "color": "white",
                         "width": "43px",
                         "height": "43px",
@@ -140,8 +198,8 @@ const updating = () => {
                         "padding": "9px"
                     }}></ChatIcon>
             </li>
-            <li onClick={updatingDivui}>
-                <PeopleOutlineIcon style={{
+            <li>
+                <PeopleOutlineIcon onClick={popleStyle} style={{
                         "color": "white",
                         "width": "43px",
                         "height": "43px",
@@ -149,7 +207,7 @@ const updating = () => {
                         "padding": "9px"
                     }}></PeopleOutlineIcon>
             </li>
-            <li onClick={updatingDivui}>
+            <li>
                 <InfoIcon style={{
                         "color": "white",
                         "width": "43px",
@@ -157,8 +215,10 @@ const updating = () => {
                         "borderRadius": "50%",
                         "padding": "9px"
                     }}></InfoIcon>
+
             </li>
         </div>
+        <div className={style.footerarrow}>{upArrow?<KeyboardControlKeyIcon onClick={mobileDisplayShow}></KeyboardControlKeyIcon>:<KeyboardArrowDownIcon onClick={mobileDisplayShow}></KeyboardArrowDownIcon>}</div>
         </div>
         </>
     )
