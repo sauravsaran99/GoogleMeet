@@ -2,7 +2,10 @@
 import { Router } from './components/Router/Router';
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{
+      width: '100%',
+      height: '100%',
+    }}>
      <Router></Router>
     </div>
   );
