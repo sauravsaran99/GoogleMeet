@@ -60,21 +60,37 @@
     grid-area: h;
 }
 
-@media screen and (min-width: 100px) and (max-width: 450px) {
+@media screen and (min-width: 100px) and (max-width: 389px) {
     #homefirstbox {
      grid-template-areas:
-     'a'
-     'b'
-     'c'
-     'd'
-     'e'
-     'f'
-     'g'
-     'h' !important;
+     'a b'
+     'c d'
+     'e f'
+     'g h'!important;
     }
     .homefirstboximage {
-        width: 80%;
-        height: 60px;
+        width: 90%;
+        height: 120px;
+        margin: 5px auto;
+    }
+
+    .homefirstboximage img {
+        width: 30px;
+        height: 30px;
+    }
+ }
+
+ @media screen and (min-width: 390px) and (max-width: 446px) {
+    #homefirstbox {
+     grid-template-areas:
+     'a b'
+     'c d'
+     'e f'
+     'g h'!important;
+    }
+    .homefirstboximage {
+        width: 90%;
+        height: 160px;
         margin: 5px auto;
     }
 
