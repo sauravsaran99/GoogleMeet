@@ -3,7 +3,6 @@
 import { Footer } from '../Footer/Footer';
 import style from './Home.module.css';
 import MicOffIcon from '@mui/icons-material/MicOff';
-import Radium from 'radium';
 import { useState } from 'react';
 import { Chatbox } from '../ChatBox/Chatbox';
 import { People } from '../People/People';
@@ -21,20 +20,11 @@ const Home = () => {
                 `,
     })
 
-    const styling = {
-        ...stylingFirst,
-        "@media and (min-width: 722px) and (max-width: 913px)": {
-             'gridTemplateAreas':`
-             'a a b b c c'
-             'd d e e f f'
-             '. g g h h .'`
-            }
-    }
 
     return (
         <>
         <div className={style.homemainbox}>
-            <div id={style.homefirstbox} className={style.homefirstbox} style={styling}>
+            <div id={style.homefirstbox} className={style.homefirstbox} style={stylingFirst}>
                 <div className={`${style.homefirstboximage} ${style.gridfirst}`}>
                     <MicOffIcon style={
                         {
@@ -206,4 +196,4 @@ const Home = () => {
 }
 
 
-export default Radium(Home);
+export default Home;

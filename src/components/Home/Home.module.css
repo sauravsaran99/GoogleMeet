@@ -60,8 +60,31 @@
     grid-area: h;
 }
 
+@media screen and (min-width: 100px) and (max-width: 450px) {
+    #homefirstbox {
+     grid-template-areas:
+     'a'
+     'b'
+     'c'
+     'd'
+     'e'
+     'f'
+     'g'
+     'h' !important;
+    }
+    .homefirstboximage {
+        width: 80%;
+        height: 60px;
+        margin: 5px auto;
+    }
 
-@media screen and (min-width: 540px) and (max-width: 721px) {
+    .homefirstboximage img {
+        width: 30px;
+        height: 30px;
+    }
+ }
+
+@media screen and (min-width: 450px) and (max-width: 721px) {
    #homefirstbox {
     grid-template-areas:
     'a a b b c c'
@@ -70,12 +93,12 @@
    }
 }
 
-/* @media screen and (min-width: 722px) and (max-width: 913px) {
+@media screen and (min-width: 722px) and (max-width: 913px) {
     #homefirstbox {
      grid-template-areas:
      'a a b b c c'
      'd d e e f f'
      '. g g h h .' !important;
     }
- } */
+ }
 

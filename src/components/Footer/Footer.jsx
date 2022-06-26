@@ -31,19 +31,32 @@ export const Footer = ({widthChange}) => {
         }
     }, [displayValue])
     const changeStyling = () => {
-        widthChange(
-            {
-               "width": `70%`,
-                       "display": "grid",
-                       "gridTemplateAreas": `
-                       'a a b b c c'
-                       'd d e e f f'
-                       '. g g h h .
-                       `,
-                       "transition": "width .2s",
-       "transitionTimingFunction": "linear"
-           }
-       );
+    //     widthChange(
+    //         {
+    //            "width": `70%`,
+    //                    "display": "grid",
+    //                    "gridTemplateAreas": `
+    //                    'a a b b c c'
+    //                    'd d e e f f'
+    //                    '. g g h h .
+    //                    `,
+    //                    "transition": "width .2s",
+    //    "transitionTimingFunction": "linear"
+    //        }
+    //    );
+    widthChange(
+        {
+           "width": `70%`,
+                   "display": "grid",
+                   "gridTemplateAreas": `
+                   'a a b b c c'
+                   'd d e e f f'
+                   '. g g h h .'
+                   `,
+                   "transition": "width .2s",
+   "transitionTimingFunction": "linear",
+       }
+   );
 
        dispatch(peopleStyling({"display": "none", "position": `absolute`,
        "right": "20px",
@@ -74,7 +87,7 @@ export const Footer = ({widthChange}) => {
                        '. g g h h .'
                        `,
                        "transition": "width .2s",
-       "transitionTimingFunction": "linear"
+       "transitionTimingFunction": "linear",
            }
        );
 
